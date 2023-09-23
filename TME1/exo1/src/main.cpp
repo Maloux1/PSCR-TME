@@ -6,11 +6,14 @@
 int main () {
 
 	std::string abc = "abc";
-	char * str = new char [3];
+	// FAUTE on doit mettre un caractere de fin de chaine à la fin du char*
+	char * str = new char [4];
 	str[0] = 'a';
 	str[1] = 'b';
 	str[2] = 'c';
-	size_t i = 0;
+	str[3] = '\0';
+	// faute on doit considerer i comme un int et non un size_t si on ne veut pas une boucle infinie
+	int i = 0;
 
 	if (! strcmp (str, abc.c_str())) {
 		std::cout << "Equal !";
@@ -28,11 +31,8 @@ int main () {
 		std::cout << "elt " << i << ": " << list[i] << std::endl;
 	}
 
-	// liberer les char de la chaine
-	for (char *cp = str ; *cp ; cp++) {
-		delete cp;
-	}
-	// et la chaine elle meme
-	delete str;
+	// liberer la chaine
+	// faute on a alloué la chaine d'un seul coup on la liber d'un seul coup aussi
+	delete [] str;
 
 }
