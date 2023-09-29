@@ -3,8 +3,17 @@ Il y a 566193 mots dans le livre.
 2124ms d'execution
 
 ==== Question 2 ====
-Il y a 20333 mots différents dans le livre.
+Il y a 20332 mots différents dans le livre.
 29763ms d'execution
 
 ==== Question 3 ====
+
+Il y a 0 fois le mot toto dans le livre.
+Il y a 298 fois le mot war dans le livre.
+Il y a 114 fois le mot peace dans le livre.
+
+==== Question 4 ====
+
+La compléxitée est en n^2 où n est le nombre de mots à insérer différents, ce qui est très lent dès que n augmente. Pour accéler ce programme, on aurait pu prendre une hashmap.
+
 
