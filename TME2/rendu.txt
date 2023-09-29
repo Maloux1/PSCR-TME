@@ -1,7 +1,10 @@
 ==== Question 1 ====
 Il y a 566193 mots dans le livre.
-
+2124ms d'execution
 
 ==== Question 2 ====
 Il y a 20333 mots différents dans le livre.
 29763ms d'execution
+
+==== Question 3 ====
+
