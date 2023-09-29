@@ -20,7 +20,7 @@ int main () {
 	auto start = steady_clock::now();
 	cout << "Parsing War and Peace" << endl;
 
-  std::vector mots_presents = std::vector<std::pair<std::string, int>>();
+  std::map<std::string, int> mots_presents = std::map<std::string, int>();
 
 	size_t nombre_lu = 0;
 	// prochain mot lu
@@ -39,13 +39,8 @@ int main () {
 			// on affiche un mot "propre" sur 100
 			cout << nombre_lu << ": "<< word << endl;
 		nombre_lu++;
-    int* res = contains(mots_presents, word);
-    if (res == nullptr){
-      mots_presents.push_back(make_pair(word, 1));
-    }
-    else {
-      (*res)++;
-    }
+      mots_presents[word] += 1;
+    
 	}
 
 	input.close();
@@ -65,15 +60,7 @@ int main () {
     tab.push_back("war");
     tab.push_back("peace");
     for (auto i = tab.begin(); i != tab.end(); i++) {
-      int* res = contains(mots_presents, *i); 
-      int r;
-      if (res == nullptr){
-        r = 0;
-      }
-      else {
-        r = *res;
-      }
-      cout << "Il y a " << r << " fois le mot " << *i << " dans le livre." << endl; 
+      cout << "Il y a " << mots_presents[*i] << " fois le mot " << *i << " dans le livre." << endl; 
     }
     return 0;
 }
