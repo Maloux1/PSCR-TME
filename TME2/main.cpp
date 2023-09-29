@@ -3,6 +3,14 @@
 #include <regex>
 #include <chrono>
 
+bool contains(const std::vector<std::string>& v, const std::string& s){
+  for (auto i = v.begin(); i != v.end(); i++) {
+    if ((*i) == s)
+      return true;
+  }
+  return false;
+}
+
 int main () {
 	using namespace std;
 	using namespace std::chrono;
@@ -11,6 +19,8 @@ int main () {
 
 	auto start = steady_clock::now();
 	cout << "Parsing War and Peace" << endl;
+
+  std::vector mots_presents = std::vector<std::string>();
 
 	size_t nombre_lu = 0;
 	// prochain mot lu
@@ -28,6 +38,9 @@ int main () {
 			// on affiche un mot "propre" sur 100
 			cout << nombre_lu << ": "<< word << endl;
 		nombre_lu++;
+    if (contains(mots_presents, word) == false){
+      mots_presents.push_back(word);
+    }
 	}
 	input.close();
 
@@ -39,7 +52,7 @@ int main () {
               << "ms.\n";
 
     cout << "Found a total of " << nombre_lu << " words." << endl;
-
+    cout << "Found a total of " << mots_presents.size() << " differents words." << std::endl;
     return 0;
 }
 
