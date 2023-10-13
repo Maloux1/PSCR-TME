@@ -16,4 +16,16 @@ Il y a 114 fois le mot peace dans le livre.
 
 La compléxitée est en n^2 où n est le nombre de mots à insérer différents, ce qui est très lent dès que n augmente. Pour accéler ce programme, on aurait pu prendre une hashmap.
 
+==== Question 5 ====
+
+Le 1éme mot le plus présent est : the
+Le 2éme mot le plus présent est : and
+Le 3éme mot le plus présent est : to
+Le 4éme mot le plus présent est : of
+Le 5éme mot le plus présent est : a
+Le 6éme mot le plus présent est : he
+Le 7éme mot le plus présent est : in
+Le 8éme mot le plus présent est : his
+Le 9éme mot le plus présent est : that
+Le 10éme mot le plus présent est : was
 
