@@ -15,7 +15,7 @@ int main () {
 	using namespace std;
 	using namespace std::chrono;
 
-	ifstream input = ifstream("/tmp/WarAndPeace.txt");
+	ifstream input = ifstream("WarAndPeace.txt");
 
 	auto start = steady_clock::now();
 	cout << "Parsing War and Peace" << endl;
@@ -61,6 +61,11 @@ int main () {
     tab.push_back("peace");
     for (auto i = tab.begin(); i != tab.end(); i++) {
       cout << "Il y a " << mots_presents[*i] << " fois le mot " << *i << " dans le livre." << endl; 
+    }
+    std::vector<std::pair<std::string, int>> vector_copy_from_map(mots_presents.begin(), mots_presents.end());
+    std::sort(vector_copy_from_map.begin(), vector_copy_from_map.end(), [] (const std::pair<std::string, int> & a, const std::pair<std::string, int> & b) {return a.second > b.second;});
+    for (auto i=0; i<10 && i< vector_copy_from_map.size(); i++) {
+      cout << "Le " << i+1 << "éme mot le plus présent est : " << vector_copy_from_map[i].first << endl;
     }
     return 0;
 }
