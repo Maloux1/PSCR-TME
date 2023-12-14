@@ -1,0 +1,8 @@
+question 2 : comportement correct. Pas de datarace.
+question 4 : on verrouille simplement les deux comptes avant un transfert, on utilise recursive mutex pour laisser les protections dans la classe et quand meme pouvoir les verrouiller depuis la classe banque.
+question 5 : pas de problème car on a deja les recursive mutex
+question 6 : on va utiliser try_lock pour débloquer les threads en attente si jamais un des verrous n'est pas accessible.
+question 7 : un thread comptable ne peut être satisfait par le bilan comptable actuel car il devrait bloquer tous les threads pour faire la somme. Là il peut compter deux fois une somme si elle passe d'un compte avec un id plus petit vers un id plus grand par exemple.
+question 8 : Bilan comptable faux : attendu 10000 obtenu : 10294
+on a supprimé le sleep pour ce faire
+derniere question : on prend le lock quand on fait la somme et ensuite on ne le relache pas jusqu'a avoir terminé et là on relache tout.

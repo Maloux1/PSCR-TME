@@ -3,9 +3,12 @@
 #include "Compte.h"
 #include <vector>
 
+using namespace std;
+
 namespace pr {
 
 class Banque {
+	mutable recursive_mutex m;
 	typedef std::vector<Compte> comptes_t;
 	comptes_t comptes;
 public :
