@@ -2,6 +2,36 @@
 #include <fstream>
 #include <regex>
 #include <chrono>
+#include <cstddef>
+#include <iterator>
+
+template <typename iterator>
+size_t count(iterator begin, iterator end) {
+	size_t i=0;
+	while (begin++ != end) {
+		i++;
+	}
+	return i;
+}
+
+bool operator==(std::pair<std::string, int> a, std::string b) {
+	if (a.first == b) {
+		return true;
+	}
+	return false;
+}
+
+template <typename iterator, typename T>
+size_t count_if_equal(iterator begin, iterator end, const T & val) {
+	size_t i=0;
+	while (begin != end) {
+		if (*begin == *end){
+			i++;
+		}
+		begin++;
+	}
+	return i;
+}
 
 int* contains(std::vector<std::pair<std::string, int>>& v, const std::string& s){
   for (auto i = v.begin(); i != v.end(); i++) {
@@ -67,6 +97,9 @@ int main () {
     for (auto i=0; i<10 && i< vector_copy_from_map.size(); i++) {
       cout << "Le " << i+1 << "éme mot le plus présent est : " << vector_copy_from_map[i].first << endl;
     }
+    cout << "test count (vector_copy_from_map): " << count(vector_copy_from_map.begin(), vector_copy_from_map.end()) << " " << vector_copy_from_map.size() << " end test." << endl;
+    cout << "test count (mots_presents): " << count(mots_presents.begin(), mots_presents.end()) << " " << mots_presents.size() << " end test." << endl;
+
     return 0;
 }
 
