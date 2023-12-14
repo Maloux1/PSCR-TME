@@ -1,6 +1,8 @@
 #include "Vec3D.h"
 #include "Rayon.h"
 #include "Scene.h"
+#include "Pool.h"
+
 #include <iostream>
 #include <algorithm>
 #include <fstream>
@@ -102,7 +104,7 @@ void exportImage(const char * path, size_t width, size_t height, Color * pixels)
 // pas d'accents pour eviter les soucis d'encodage
 
 int main () {
-
+	
 	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 	// on pose une graine basee sur la date
 	default_random_engine re(std::chrono::system_clock::now().time_since_epoch().count());
@@ -157,7 +159,19 @@ int main () {
 	              << "ms.\n";
 
 	exportImage("toto.ppm",scene.getWidth(), scene.getHeight() , pixels);
-
+	
 	return 0;
 }
 
+
+/*
+int x;
+Pool p(1000);
+Barrier b(50);
+for (int i=0; i<50; i++) {
+	p.submit(new SleepJob(1, &x, std::ref(b)));
+}
+p.start(50);
+b.waitFor();
+p.stop();
+*/
