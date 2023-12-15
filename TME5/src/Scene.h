@@ -60,7 +60,7 @@ public:
 	const_iterator end() const { return objects.end() ; }
 
 	// les points de l'ecran par lesquels pqssent les rayons
-	const screen_t & getScreenPoints() const { return screen; }
+	screen_t & getScreenPoints() { return screen; }
 	// resolution en pixels
 	int getHeight() const { return height ;}
 	int getWidth() const { return width ;}
