@@ -15,6 +15,7 @@ namespace pr {
 		while ((job_ptr = q.pop()) != nullptr) {
 			job_ptr->run();
 		}
+		delete job_ptr;
 	}
 
 	class Pool {

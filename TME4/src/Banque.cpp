@@ -30,8 +30,14 @@ namespace pr {
 			}
 		}
 		/*
-		debiteur.lock();
-		crediteur.lock();
+		if (deb < cred) {
+			debiteur.lock();
+			crediteur.lock();
+		}
+		else {
+			crediteur.lock();
+			debiteur.lock();
+		}
 		if (debiteur.debiter(val)) {
 			crediteur.crediter(val);
 		}
