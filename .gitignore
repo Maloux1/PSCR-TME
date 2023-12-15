@@ -12,3 +12,6 @@ missing
 .deps/
 configure~
 *.o
+tme5
+exe
+toto.ppm
